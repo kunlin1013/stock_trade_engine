@@ -48,16 +48,3 @@ def bbands(close: pd.Series, period: int = 20, times: float = 2.0) -> pd.DataFra
         'bb_bandwidth': bb_bandwidth,       # 布林帶寬（反映波動性）
         'bb_percent_b': bb_percent_b        # %b值（相對位置）
     })
-
-
-if __name__ == '__main__':
-	stock = yf.Ticker("2330.TW")
-	df = stock.history(start="2017-01-01", end="2021-02-02")
-
-	# 計算布林通道指標
-	bb_df = bbands(df['Close'])
-
-	# 合併原始股價資料與布林指標
-	df_combined = pd.concat([df, bb_df], axis=1)
-
-	print(df_combined.tail())
