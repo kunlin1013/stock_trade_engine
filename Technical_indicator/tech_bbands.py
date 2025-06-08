@@ -1,5 +1,4 @@
 import pandas as pd
-import yfinance as yf
 
 def bbands(close: pd.Series, period: int = 20, times: float = 2.0) -> pd.DataFrame:
     """
