@@ -13,7 +13,6 @@ def simple_moving_average(close: pd.Series, period: int = 20) -> pd.DataFrame:
 			- sma: 簡單移動平均線
     """
     sma = close.rolling(window=period).mean()
-
-    return pd.DataFrame({
-        'sma': sma
-    })
+    column_name = f'sma_{period}'
+	
+    return pd.DataFrame({column_name: sma})
